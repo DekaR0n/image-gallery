@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная галерея</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <div class="filter-buttons">
+        <button data-filter="all">Все</button>
+        <button data-filter="nature">Природа</button>
+        <button data-filter="architecture">Архитектура</button>
+        <button data-filter="art">Искусство</button>
+    </div>
+    
+    <form id="upload-form">
+        <input type="file" id="image-upload" accept="image/*" required>
+        <input type="text" id="image-title" placeholder="Название" required>
+        <input type="text" id="image-description" placeholder="Описание" required>
+        <select id="image-category" required>
+            <option value="nature">Природа</option>
+            <option value="architecture">Архитектура</option>
+            <option value="art">Искусство</option>
+        </select>
+        <button type="submit">Добавить</button>
+    </form>
+    
+    <div class="gallery">
+        
+    </div>
+</body>
+</html>
+
