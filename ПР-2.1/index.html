@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная галерея</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <div class="filter-buttons">
+        <!-- Динамические кнопки будут добавлены здесь -->
+    </div>
+    
+    <div class="categories">
+        <div class="category all-category active">Все изображения</div>
+        <div class="category non-sort" data-name="uncategorized">Неотсортированные</div>
+        <!-- Динамические категории -->
+        <div class="category add-category">
+            <span class="add-text">Добавить категорию</span>
+            <input type="text" id="new-category-input" class="hidden">
+        </div>
+    </div>
+
+    <form id="upload-form" class="form_add">
+        <input type="file" id="image-upload" accept="image/*" required >
+        
+        <div class="image-preview hidden"></div>
+
+        <input type="text" id="image-title" placeholder="Название" required>
+        
+        <input type="text" id="image-description" placeholder="Описание" required>
+
+        <select id="image-category" required>
+            <option value="" disabled selected>Выберите категорию</option>
+        </select>
+        <button type="submit">Добавить</button>
+    </form>
+
+    <div class="gallery"></div>
+
+    <!-- Модальное окно редактирования -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h3>Редактировать</h3>
+            <img id="edit-image-preview" src="" alt="Превью изображения">
+            <input type="text" id="edit-title">
+            <input type="text" id="edit-description">
+            <select id="edit-category"></select>
+            <div class="modal-buttons">
+                <button id="save-changes">Сохранить</button>
+                <button id="cancel-changes">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно подтверждения удаления -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content small">
+            <p>Удалить изображение?</p>
+            <div class="modal-buttons">
+                <button id="confirm-delete">Да</button>
+                <button id="cancel-delete">Нет</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
