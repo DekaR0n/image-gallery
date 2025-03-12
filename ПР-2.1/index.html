@@ -23,9 +23,12 @@
     </div>
 
     <form id="upload-form" class="form_add">
-        <input type="file" id="image-upload" accept="image/*" required >
+        <div class="div-preview">
+            <img class="image-preview" id="preview" src="images/no_image.png"></img>
+        </div>
         
-        <div class="image-preview hidden"></div>
+
+        <input type="file" id="image-upload" accept="image/*" required >
 
         <input type="text" id="image-title" placeholder="Название" required>
         
@@ -43,9 +46,11 @@
     <div id="edit-modal" class="modal">
         <div class="modal-content">
             <h3>Редактировать</h3>
-            <img id="edit-image-preview" src="" alt="Превью изображения">
-            <input type="text" id="edit-title">
-            <input type="text" id="edit-description">
+            <img class="redact_img" id="edit-image-preview" src="" alt="Превью изображения">
+            <div class="modal-inputs">
+                <input type="text" id="edit-title">
+                <input type="text" id="edit-description">
+            </div>
             <select id="edit-category"></select>
             <div class="modal-buttons">
                 <button id="save-changes">Сохранить</button>

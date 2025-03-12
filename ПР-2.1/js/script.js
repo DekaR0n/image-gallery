@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         await loadCategories();
         await loadImages();
         setupEventListeners();
+        setupImagePrewie()
         setupFilterButtons(); // Восстановлен обработчик фильтров
     }
 
@@ -196,8 +197,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h3>${img.title}</h3>
                 <p>${img.description}</p>
                 <p class="category-label">Категория: ${img.category}</p>
-                <button class="edit-btn">Редактировать</button>
-                <button class="delete-btn">Удалить</button>
+                <div class="button-container">
+                    <button class="edit-btn">Редактировать</button>
+                    <button class="delete-btn">Удалить</button>
+                </div>
             </div>
         `).join('');
 
@@ -317,8 +320,44 @@ document.addEventListener("DOMContentLoaded", () => {
                     loadImages();
                     document.getElementById('upload-form').reset();
                 };
+
             };
+            document.querySelector(".image-preview").style.height = "50%";
+            document.querySelector(".image-preview").style.width = "50%";
+            document.getElementById("preview").src = "images/no_image.png";
             reader.readAsDataURL(file);
+        });
+    }
+
+    function setupImagePrewie() {
+        document.getElementById("image-upload").addEventListener("change", function(event) {
+            const file = event.target.files[0]; 
+            if (file) {
+                document.querySelector(".image-preview").style.height = "400px";
+                document.querySelector(".image-preview").style.width = "100%";
+                
+                const reader = new FileReader(); 
+        
+                reader.onload = function(e) {
+                    document.getElementById("preview").src = e.target.result; 
+                };
+        
+                reader.readAsDataURL(file); 
+            }
+            else{
+                if (document.getElementById("image-upload").files.length){
+                    document.querySelector(".image-preview").style.height = "100%";
+                    document.querySelector(".image-preview").style.width = "100%";
+                    
+                    document.getElementById("preview").src = e.target.result; 
+                }
+                else{
+                    document.querySelector(".image-preview").style.height = "50%";
+                    document.querySelector(".image-preview").style.width = "50%";
+                    
+                    document.getElementById("preview").src = "images/no_image.png";
+                }
+            }
         });
     }
 });
