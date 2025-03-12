@@ -83,7 +83,7 @@ body {
 .category {
     background: #2d2d2d;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
     display: flex;
@@ -97,7 +97,7 @@ body {
 
 .add-category {
     background: #404040 !important;
-    border: 2px dashed #666;
+    border: 2px #666;
 }
 
 /* Модальные окна */
@@ -134,10 +134,11 @@ body {
 
 .modal-content {
     background: #1e1e1e;
-    margin: 15% auto;
+    margin: auto;
     padding: 20px;
     width: 400px;
     border-radius: 10px;
+    
 }
 
 #edit-image-preview {
@@ -200,21 +201,25 @@ body {
     font-size: 16px;
     border: none;
     border-radius: 8px;
-    padding: 12px 0;
+    padding: 12px 4px;
     background-color: #252525;
     color: white;
     transition: all 0.3s ease;
+    margin: 3px;
 }
 
 .button-container,
-.modal-inputs,
-.modal-buttons {
+.modal-inputs {
     display: flex; 
     justify-content: space-between; 
     margin-top: 10px;
-    gap: 10px;
+    
 }
-
+.modal-buttons button { 
+    justify-content: space-between; 
+    margin-top: 10px;
+    padding: 1.2rem;
+}
 
 button:hover,
 .filter-buttons button:hover,
@@ -244,3 +249,4 @@ button:hover,
         transform: translateY(0);
     }
 }
+
